@@ -16,29 +16,29 @@ namespace WpfFirst.View
 
         private void FleetBtn_Click(object sender, RoutedEventArgs e)
         {
-            new FleetStatusWindow(_userId).Show(); Close();
+            OpenWindow(new FleetStatusWindow(_userId));
         }
 
         private void ReturnBtn_Click(object sender, RoutedEventArgs e)
         {
-            new ProcessReturnWindow(_userId).Show();  //  _userId must be passed here
-            Close();
+            OpenWindow(new ProcessReturnWindow(_userId));
+           
         }
 
         private void AddCarBtn_Click(object sender, RoutedEventArgs e)
         {
-            new AddCarWindow(_userId).Show(); Close();
+            OpenWindow (new AddCarWindow(_userId));
         }
 
         private void MaintenanceBtn_Click(object sender, RoutedEventArgs e)
         {
-            new MaintenanceWindow(_userId).Show(); Close();
+            OpenWindow(new MaintenanceWindow(_userId));
         }
 
 
         private void RevenueBtn_Click(object sender, RoutedEventArgs e)
         {
-            new RevenueWindow(_userId).Show(); Close();
+            OpenWindow(new RevenueWindow(_userId));
         }
 
         private void LogoutBtn_Click(object sender, RoutedEventArgs e)
@@ -54,7 +54,7 @@ namespace WpfFirst.View
         {
             if (MessageBox.Show("Are you sure you want to log out?", "Log Out", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                new ChooseRole().Show(); Close();
+                OpenWindow(new ChooseRole());
             }
         }
 
@@ -77,6 +77,17 @@ namespace WpfFirst.View
                 SidebarColumn.Width = new GridLength(220);
                 _isSidebarOpen = true;
             }
+        }
+        private void OpenWindow(Window next) // full screen
+        {
+            next.WindowState = this.WindowState;
+            next.WindowStartupLocation = WindowStartupLocation.Manual;
+            next.Top = this.Top;
+            next.Left = this.Left;
+            next.Width = this.Width;
+            next.Height = this.Height;
+            next.Show();
+            Close();
         }
     }
 }

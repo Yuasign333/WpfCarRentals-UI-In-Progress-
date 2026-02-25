@@ -28,7 +28,7 @@ namespace WpfFirst.View
 
             if (id == CustID && pass == CustPass)
             {
-                new CustomerDashboard(id).Show(); Close();
+                OpenWindow(new CustomerDashboard(id));
             }
 
             else
@@ -37,12 +37,12 @@ namespace WpfFirst.View
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-            new ChooseRole().Show(); Close();
+            OpenWindow(new ChooseRole());
         }
 
         private void Menu_Back_Click(object sender, RoutedEventArgs e)
         {
-            new ChooseRole().Show(); Close();
+            OpenWindow(new ChooseRole());
         }
 
         private void Menu_Exit_Click(object sender, RoutedEventArgs e)
@@ -54,5 +54,22 @@ namespace WpfFirst.View
         {
             ErrorText.Text = msg; ErrorBanner.Visibility = Visibility.Visible;
         }
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenWindow(new ChooseRole());
+        }
+        private void OpenWindow(Window next) // full screen
+        {
+            next.WindowState = this.WindowState;
+            next.WindowStartupLocation = WindowStartupLocation.Manual;
+            next.Top = this.Top;
+            next.Left = this.Left;
+            next.Width = this.Width;
+            next.Height = this.Height;
+            next.Show();
+            Close();
+        }
+
+      
     }
 }

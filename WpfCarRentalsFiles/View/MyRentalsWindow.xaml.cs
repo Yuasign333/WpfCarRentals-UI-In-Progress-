@@ -16,7 +16,18 @@ namespace WpfFirst.View
 
         private void BackBtn_Click(object sender, MouseButtonEventArgs e)
         {
-            new AdminDashboard(_userId).Show();  // ← was CustomerDashboard, now AdminDashboard
+            OpenWindow(new CustomerDashboard(_userId));
+            Close();
+        }
+        private void OpenWindow(Window next) // full screen
+        {
+            next.WindowState = this.WindowState;
+            next.WindowStartupLocation = WindowStartupLocation.Manual;
+            next.Top = this.Top;
+            next.Left = this.Left;
+            next.Width = this.Width;
+            next.Height = this.Height;
+            next.Show();
             Close();
         }
     }

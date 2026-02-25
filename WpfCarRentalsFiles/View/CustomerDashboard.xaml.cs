@@ -33,28 +33,42 @@ namespace WpfFirst.View
         // ── Navigation ───────────────────────────────────────────────
         private void BrowseCarsBtn_Click(object sender, RoutedEventArgs e)
         {
-            new BrowseCarsWindow(_userId).Show(); Close();
+            OpenWindow(new BrowseCarsWindow(_userId));
         }
 
         private void RentCarBtn_Click(object sender, RoutedEventArgs e)
         {
-            new RentCarWindow(_userId).Show(); Close();
+            OpenWindow(new RentCarWindow(_userId));
         }
 
         private void MyRentalsBtn_Click(object sender, RoutedEventArgs e)
         {
-            new MyRentalsWindow(_userId).Show(); Close();
+            OpenWindow(new MyRentalsWindow(_userId));
         }
 
         // ── Logout ───────────────────────────────────────────────────
-        private void LogoutBtn_Click(object sender, RoutedEventArgs e) => Logout();
+        private void LogoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Logout();
+        }
 
         private void Logout()
         {
             if (MessageBox.Show("Are you sure you want to log out?", "Log Out", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                new ChooseRole().Show(); Close();
+                OpenWindow(new ChooseRole());
             }
+        }
+        private void OpenWindow(Window next) // full screen
+        {
+            next.WindowState = this.WindowState;
+            next.WindowStartupLocation = WindowStartupLocation.Manual;
+            next.Top = this.Top;
+            next.Left = this.Left;
+            next.Width = this.Width;
+            next.Height = this.Height;
+            next.Show();
+            Close();
         }
     }
 }
