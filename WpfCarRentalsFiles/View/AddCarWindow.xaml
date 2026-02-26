@@ -8,7 +8,7 @@
 
     <Viewbox Stretch ="UniformToFill">
         <Grid>
-            <Rectangle Height="600" Width="1200">
+            <Rectangle Height="620" Width="1020">
                 <Rectangle.Fill>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#F0EBFF" Offset="0"/>
@@ -38,7 +38,7 @@
             </Ellipse>
 
             <Border VerticalAlignment="Top" Height="60"
-                BorderBrush="#E2D4F8" BorderThickness="0,0,0,1">
+                BorderBrush="#E2D4F8" BorderThickness="0,0,0,0">
                 <Grid Margin="28,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>

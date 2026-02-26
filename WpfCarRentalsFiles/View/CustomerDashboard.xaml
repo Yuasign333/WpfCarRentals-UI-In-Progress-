@@ -6,7 +6,6 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanResize">
 
-    <ScrollViewer VerticalScrollBarVisibility="Visible">
         <Viewbox Stretch ="UniformToFill">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -163,7 +162,7 @@
 
                     <!-- TOP BAR -->
                     <Border VerticalAlignment="Top" Height="60"
-                    BorderBrush="#E2D4F8" BorderThickness="0,0,0,1">
+                    BorderBrush="#E2D4F8" BorderThickness="0,0,0,0">
                         <Grid Margin="28,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
@@ -311,6 +310,6 @@
                 </Grid>
             </Grid>
         </Viewbox>
-    </ScrollViewer>
+  
 
 </Window>
