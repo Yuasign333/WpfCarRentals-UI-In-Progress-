@@ -16,16 +16,11 @@ namespace WpfFirst.View
         {
             OpenWindow(new AdminDashboard(_userId));
         }
-        private void OpenWindow(Window next) // full screen
+        private void OpenWindow(Window next)
         {
-            next.WindowState = this.WindowState;
-            next.WindowStartupLocation = WindowStartupLocation.Manual;
-            next.Top = this.Top;
-            next.Left = this.Left;
-            next.Width = this.Width;
-            next.Height = this.Height;
-            next.Show();
-            Close();
+            next.WindowState = this.WindowState; next.WindowStartupLocation = WindowStartupLocation.Manual;
+            next.Top = this.Top; next.Left = this.Left; next.Width = this.Width; next.Height = this.Height;
+            next.Show(); Close();
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 
 namespace WpfFirst.View
 {
@@ -18,40 +17,39 @@ namespace WpfFirst.View
             string id = UsernameBox.Text.Trim();
             string pass = PasswordBox.Password;
 
-            if (string.IsNullOrEmpty(id))
-
-            { ShowError("Please enter your Agent ID."); 
-              return;
+            if (string.IsNullOrEmpty(id)) 
+            {
+                ShowError("Please enter your Agent ID."); return;
             }
-            if (string.IsNullOrEmpty(pass)) { ShowError("Please enter your Password."); return; }
+            if (string.IsNullOrEmpty(pass)) 
+            { 
+                ShowError("Please enter your Password."); return;
+            }
 
             if (id == AgentID && pass == AgentPass)
             {
                 OpenWindow(new AdminDashboard(id));
             }
+          
             else
-            { ShowError("Invalid Agent ID or password.  Hint: A001 / admin123"); }
+            {
+                ShowError("Invalid Agent ID or password.  Hint: A001 / admin123");
+            }
+               
         }
 
-        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             OpenWindow(new ChooseRole());
-        }
-
-        private void Menu_Back_Click(object sender, RoutedEventArgs e)
-        {
-            OpenWindow(new ChooseRole());
-        }
-
-        private void Menu_Exit_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
         }
 
         private void ShowError(string msg)
-        { ErrorText.Text = msg; ErrorBanner.Visibility = Visibility.Visible; }
+        {
+            ErrorText.Text = msg;
+            ErrorBanner.Visibility = Visibility.Visible;
+        }
 
-        private void OpenWindow(Window next) // full screen
+        private void OpenWindow(Window next)
         {
             next.WindowState = this.WindowState;
             next.WindowStartupLocation = WindowStartupLocation.Manual;
@@ -61,11 +59,6 @@ namespace WpfFirst.View
             next.Height = this.Height;
             next.Show();
             Close();
-        }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            OpenWindow( new ChooseRole());
         }
     }
 }

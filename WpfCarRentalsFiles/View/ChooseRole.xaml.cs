@@ -17,32 +17,19 @@ namespace WpfFirst.View
 
         private void AdminCard_Click(object sender, MouseButtonEventArgs e)
         {
-            OpenWindow(new AdminLogin()); 
+            OpenWindow(new AdminLogin());
         }
 
-        private void Menu_Exit_Click(object sender, RoutedEventArgs e)
-
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void Menu_About_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Rental Rev.\nCar Rental Management System\n\nMade by Yuan",
-            "About", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to Exit", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Are you sure you want to Exit?", "Exit",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 Application.Current.Shutdown();
             }
-           
         }
 
-        //if (MessageBox.Show("Are you sure you want to log out?", "Log Out", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-           
-    private void OpenWindow(Window next) // full screen
+        private void OpenWindow(Window next)
         {
             next.WindowState = this.WindowState;
             next.WindowStartupLocation = WindowStartupLocation.Manual;
@@ -53,7 +40,5 @@ namespace WpfFirst.View
             next.Show();
             Close();
         }
-
-       
     }
 }
